@@ -1,0 +1,40 @@
+textarea.form-control {
+	box-shadow: none !important;
+	background-color: white;
+}
+
+input[type=checkbox] {
+	width: 30px;
+	height: 30px;
+	margin-right: 8px;
+	cursor: pointer;
+	font-size: 16px;
+	visibility: hidden;
+}
+
+input[type=checkbox]:after {
+	content: "";
+	background-color: #FFF;
+	display: inline-block;
+	margin-left: 10px;
+	padding-bottom: 5px;
+	margin-top: 12px;
+	width: 25px;
+	height: 25px;
+	visibility: visible;
+	color: #00BFF0;
+	border: 1px solid #00BFF0;
+	border-radius: 5px;
+	padding-left: 3px;
+}
+
+input[type=checkbox]:checked:after {
+	content: "\2714";
+	padding-left: 0px;
+	font-weight: normal;
+}
+
+.selected {
+	background: blue;
+	color: white;
+}

@@ -1,0 +1,133 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-5 mb-4">
+
+      <h4 class="mb-4">Performance</h4>
+
+      <!-- First box -->
+      <div class="bg-light rounded p-3 mb-4">
+        <!-- Expectation -->
+        <h5 class="h6 mb-3">Expectation</h5>
+        <div class="form-group">
+          <textarea class="form-control rounded-0" rows="5" readonly>
+            {{expectation}} 
+          </textarea>
+        </div>
+
+        <!-- Must have -->
+        <h5 class="h6 mb-3">Must Have Requirements</h5>
+         <div class="form-group">
+          <textarea class="form-control rounded-0" rows="5" readonly style="box-shadow: none;">
+            {{requirements}}
+          </textarea>
+        </div>
+      </div>
+
+      <!-- Second Box -->
+      <div class="bg-light rounded p-3 mb-4">
+
+        <!-- Criteria -->
+        <h5 class="h6 mb-3">Criteria</h5>
+         <div class="form-group">
+          <textarea class="form-control rounded-0" rows="5" readonly style="box-shadow: none;">
+            {{criteria}}
+          </textarea>
+        </div>
+
+
+        <!-- Business Scenario Applicable -->
+        <h5 class="h6 mb-3">Business Scenario Applicable</h5>
+         <div class="form-group">
+          <textarea class="form-control rounded-0" rows="5" readonly style="box-shadow: none;">
+            {{scenario}}
+          </textarea>
+        </div>
+
+        <!-- GO/NO Go Decision -->
+        <h5 class="h6 mb-3">GO/NO Go Decision</h5>
+         <div class="form-group">
+          <textarea class="form-control rounded-0" rows="5" readonly style="box-shadow: none;">
+            {{go}}
+          </textarea>
+        </div>
+      </div>
+
+      <!-- Question box -->
+      <div class="">
+        <p style="text-decoration: underline;">
+            Select a model that meets model expectation and success criteria
+        </p>
+
+        <div class="mb-3">
+          <button class="btn btn-light btn-model selected mr-4">Model 1</button>
+          <input type="checkbox" checked class="checkbox" (change)="selectModel($event)" />
+          <span> +1</span>
+        </div>
+
+         <div class="mb-3">
+          <button class="btn btn-light btn-model mr-4">Model 2</button>
+          <input type="checkbox" class="checkbox" (change)="selectModel($event)"/>
+          <span> +1</span>
+        </div>
+
+         <div class="mb-4">
+          <button class="btn btn-light btn-model mr-4">Model 3</button>
+          <input type="checkbox" class="checkbox" (change)="selectModel($event)" />
+          <span> +1</span>
+        </div>
+
+        <h5 class="h5 mb-3">How to operationalize the model outcome?</h5>
+        <div class="form-group">
+          <textarea class="form-control rounded-0" rows="5" readonly style="box-shadow: none;">
+            {{outcome}}
+          </textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-7">
+
+      <div class="card">
+        <div class="card-header">
+           <p class="">Click on each tab to view the performance of each model</p>
+
+          <nav class="nav nav-pills" role="tablist">
+            <a href="#first" class="nav-link active" data-toggle="tab" aria-controls="first" aria-selected="true" role="tab">
+              Model 1
+            </a>
+
+            <a href="#second" class="nav-link" data-toggle="tab" aria-controls="second" aria-selected="false" role="tab">
+              Model 2
+            </a>
+
+            <a href="#third" class="nav-link" data-toggle="tab" aria-controls="third" aria-selected="false" role="tab">
+              Model 3
+            </a>
+          </nav>
+        </div>
+
+          <!-- Tab contents-->
+        <div class="tab-content card-body">
+
+          <!-- Tab 1 -->
+          <div class="tab-pane fade show active" id="first" role="tabpanel">
+            <app-models-form></app-models-form>
+          </div>
+
+          <!-- Tab 2 -->
+          <div class="tab-pane fade" id="second" role="tabpanel">
+            <app-models-form></app-models-form>
+          </div>
+
+          <!-- Tab 3 -->
+          <div class="tab-pane fade" id="third" role="tabpanel">
+            <app-models-form></app-models-form>
+          </div>
+
+        </div>
+      </div>
+     
+
+    </div>
+  </div>
+</div>

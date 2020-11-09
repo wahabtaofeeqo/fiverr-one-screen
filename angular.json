@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "oneScreen"
+    }
+  },
+  "defaultProject": "oneScreen",
+  "cli": {
+    "analytics": "b414f75b-1d3f-4c5d-8c39-7fd197b19555"
+  }
 }

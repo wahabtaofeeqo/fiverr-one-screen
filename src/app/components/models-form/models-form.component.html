@@ -1,0 +1,97 @@
+<div>
+	<form enctype="multipart/form-data" [formGroup]="formGroup" (ngSubmit)="save(formGroup.value)">    
+        <div class="form-group">
+            <input type="text" formControlName="name" placeholder="Enter name 300 chars" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control" rows="5" formControlName="desc" placeholder="Add Description 1000 chars"></textarea>
+        </div>
+
+        <div class="form-group bg-light rounded file-upload">
+            <p>{{file}}</p>
+            <label class="btn btn-primary btn-file">
+              	Upload Attachment
+              	<input type="file" formControlName="file" (change)="fileUpload($event.target.files)" />
+            </label>
+        </div>
+
+
+        <div class="form-group">
+            <textarea class="form-control" rows="5" formControlName="explanation" placeholder="Explanation allow 2000 chars"></textarea>
+        </div>
+
+        <div class="card mb-4"> 
+           	<div class="card-header bg-primary"> 
+            	<h4 class="card-title h6 mb-0 text-white float-left">Performance Factor</h4> 
+            	<button class="float-right btn btn-light py-0" type="button" (click)="addRow($event)">Add Row</button> 
+            </div>
+
+            <div class="row px-3 py-2">
+                <p class="col mb-0">Column Heading</p>
+                <p class="col mb-0">Column Heading</p>
+                <p class="col mb-0">Column Heading</p>
+            </div>
+
+            <div class="table-responsive">
+              	<table class="table table-striped">
+	                <tbody class="tbody" formArrayName="data">
+                      	<ng-container *ngFor="let item of formDataArray().controls; let i = index">
+                        	<tr [formGroupName]="i">
+                                <ng-container *ngIf="i == 0">
+                                    <td *ngIf="i == 0">
+                                        <select class="col" formControlName="col0">
+                                            <option *ngFor="let d of dropDown" value="{{d}}">{{d}}</option>
+                                        </select>
+                                    </td>
+
+                                    <td>
+                                        <input type="text" class="col data-col" formControlName="col1"/>
+                                    </td>
+
+                                    <td>
+                                        <input type="text" class="col data-col" formControlName="col2" />
+                                    </td>
+
+                                    <td class="d-flex">
+                                        <button class="btn btn-danger py-0 px-3 mr-1" type="button" (click)="removeColumn($event, i)">-</button>
+                                        <button class="btn btn-success py-0 px-3" type="button" (click)="addColumn($event, i)">+</button>
+                                    </td>
+                                </ng-container>
+
+
+                                 <ng-container *ngIf="i != 0">
+                                    <td>
+                                        <input type="text" class="col data-col" formControlName="col0"/>
+                                    </td>
+
+                                    <td>
+                                        <input type="text" class="col data-col" formControlName="col1" />
+                                    </td>
+
+                                    <td>
+                                        <input type="text" class="col data-col" formControlName="col2" />
+                                    </td>
+
+                                    <td class="d-flex">
+                                        <button class="btn btn-danger py-0 px-3 mr-1" type="button" (click)="removeColumn($event, i)">-</button>
+                                        <button class="btn btn-success py-0 px-3" type="button" (click)="addColumn($event, i)">+</button>
+                                    </td>
+                                </ng-container>
+	                        </tr> 
+                      	</ng-container>
+	                </tbody>
+	            </table>
+            </div>
+        </div>
+
+        <div class="form-group mb-4">
+            <textarea class="form-control" rows="10" formControlName="explanation2" placeholder="Explanation 2000 chars"></textarea>
+        </div>
+
+        <div class="text-right">
+            <button class="btn btn-light mr-3 px-5" (click)="closePage()" type="button">Close</button>
+            <button class="btn btn-primary px-5">Save</button>
+        </div>
+    </form>
+</div>
