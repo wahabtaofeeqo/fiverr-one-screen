@@ -19,15 +19,22 @@ export class HomeComponent implements OnInit {
   go = '';
   scenario = '';
   criteria = '';
+
+  model1: any;
+  model2: any;
+  model3: any;
   
   	constructor(private apiService: ApiService) {}
 
   	ngOnInit() {
   		// this.getData(); Uncomment if API url is set on the service file
+      this.model1 = localStorage.getItem("model1");
+      this.model2 = localStorage.getItem("model2");
+      this.model3 = localStorage.getItem("model3");
   	}
 
   	selectModel(event) {
-  		$(document).ready(function() {
+  		$(document).ready(() => {
 
         //Remove color from all the model buttons
         $(".btn-model").each(function() {
@@ -40,9 +47,26 @@ export class HomeComponent implements OnInit {
         });
 
         //Add color and check current box and button
-  			$(event.target).siblings(".btn").addClass("selected");
+        $(event.target).siblings(".btn").addClass("selected");
         $(event.target).prop("checked", true);
-  		});
+
+        let model = $(event.target).attr("data-model");
+        let count;
+
+        switch (model) {
+          case "model1":
+            this.model1 = this.incrementModelClick(model);
+            break;
+          
+          case "model2":
+            this.model2 = this.incrementModelClick(model);
+            break;
+
+          case "model3":
+            this.model3 = this.incrementModelClick(model);
+            break;
+        }
+      });
   	}
 
   	getData() {
@@ -51,4 +75,17 @@ export class HomeComponent implements OnInit {
   			//logic
   		})
   	}
+
+    incrementModelClick(model) {
+      let count = 1;
+      if (localStorage.getItem(model) == null) {
+          localStorage.setItem(model, count.toString());
+       }
+      else {
+        count = parseInt(localStorage.getItem(model));
+        count = count + 1;
+        localStorage.setItem(model, count.toString());
+      }
+      return count;
+    }
 }

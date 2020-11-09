@@ -38,3 +38,7 @@ input[type=checkbox]:checked:after {
 	background: blue;
 	color: white;
 }
+
+.underlined {
+	text-decoration: underline;
+}

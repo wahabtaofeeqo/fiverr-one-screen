@@ -17,7 +17,7 @@
         <!-- Must have -->
         <h5 class="h6 mb-3">Must Have Requirements</h5>
          <div class="form-group">
-          <textarea class="form-control rounded-0" rows="5" readonly style="box-shadow: none;">
+          <textarea class="form-control rounded-0" rows="5" readonly>
             {{requirements}}
           </textarea>
         </div>
@@ -29,7 +29,7 @@
         <!-- Criteria -->
         <h5 class="h6 mb-3">Criteria</h5>
          <div class="form-group">
-          <textarea class="form-control rounded-0" rows="5" readonly style="box-shadow: none;">
+          <textarea class="form-control rounded-0" rows="5" readonly>
             {{criteria}}
           </textarea>
         </div>
@@ -38,7 +38,7 @@
         <!-- Business Scenario Applicable -->
         <h5 class="h6 mb-3">Business Scenario Applicable</h5>
          <div class="form-group">
-          <textarea class="form-control rounded-0" rows="5" readonly style="box-shadow: none;">
+          <textarea class="form-control rounded-0" rows="5" readonly>
             {{scenario}}
           </textarea>
         </div>
@@ -46,7 +46,7 @@
         <!-- GO/NO Go Decision -->
         <h5 class="h6 mb-3">GO/NO Go Decision</h5>
          <div class="form-group">
-          <textarea class="form-control rounded-0" rows="5" readonly style="box-shadow: none;">
+          <textarea class="form-control rounded-0" rows="5" readonly>
             {{go}}
           </textarea>
         </div>
@@ -54,31 +54,31 @@
 
       <!-- Question box -->
       <div class="">
-        <p style="text-decoration: underline;">
+        <p class="underlined">
             Select a model that meets model expectation and success criteria
         </p>
 
         <div class="mb-3">
           <button class="btn btn-light btn-model selected mr-4">Model 1</button>
-          <input type="checkbox" checked class="checkbox" (change)="selectModel($event)" />
-          <span> +1</span>
+          <input type="checkbox" checked class="checkbox" data-model="model1" (change)="selectModel($event)" />
+          <span> {{model1}}</span>
         </div>
 
          <div class="mb-3">
           <button class="btn btn-light btn-model mr-4">Model 2</button>
-          <input type="checkbox" class="checkbox" (change)="selectModel($event)"/>
-          <span> +1</span>
+          <input type="checkbox" class="checkbox" data-model="model2" (change)="selectModel($event)"/>
+          <span> {{model2}} </span>
         </div>
 
          <div class="mb-4">
           <button class="btn btn-light btn-model mr-4">Model 3</button>
-          <input type="checkbox" class="checkbox" (change)="selectModel($event)" />
-          <span> +1</span>
+          <input type="checkbox" class="checkbox" data-model="model3" (change)="selectModel($event)" />
+          <span> {{model3}}</span>
         </div>
 
         <h5 class="h5 mb-3">How to operationalize the model outcome?</h5>
         <div class="form-group">
-          <textarea class="form-control rounded-0" rows="5" readonly style="box-shadow: none;">
+          <textarea class="form-control rounded-0" rows="5" readonly>
             {{outcome}}
           </textarea>
         </div>
